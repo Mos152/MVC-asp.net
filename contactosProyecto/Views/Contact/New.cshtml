@@ -1,0 +1,27 @@
+﻿@model contactosProyecto.Models.ViewModels.ContactFormModel
+@{
+    ViewBag.Title = "New";
+}
+
+
+@using (Html.BeginForm("New", "Contact", FormMethod.Post))
+{
+<div class="formulario">
+    
+        @Html.LabelFor(d => d.Name)
+        @Html.TextBoxFor(d => d.Name, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(d => d.Name,null, new { @class="mal" })
+    
+        @Html.LabelFor(d => d.Number)
+        @Html.TextBoxFor(d => d.Number, "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(d => d.Number, null, new { @class = "mal" })
+    
+        @Html.LabelFor(d => d.Favorite)
+        @Html.CheckBoxFor(d => d.Favorite)
+    
+        @Html.LabelFor(d => d.Emergency)
+        @Html.CheckBoxFor(d => d.Emergency)
+
+    <input type="submit" value="Save" class="btn btn-primary"/> 
+</div>
+}

@@ -1,0 +1,48 @@
+﻿@model List<contactosProyecto.Models.ViewModels.ContactViewModel>
+@{
+    ViewBag.Title = "Index";
+
+
+}
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div style="margin:30px;" class="row">
+
+    <ul class="list-group">
+       
+        @foreach (var data in Model) { 
+        
+        <li class="list-group-item contactBox">
+            <div style="width: 50%; display: flex; flex-direction:column; justify-content:flex-start; padding-top:10px">
+                    <p><strong>Name:</strong> @data.Name</p>
+                    <p><strong>Number:</strong> @data.Number</p>
+            </div>
+            
+            <div style="width: 50%; display: flex; justify-content: flex-end; align-items: center; gap: 10px;" >
+                <a href="~/Contact/Edit/@data.Id">
+                    <button type="button" class="btn btn-primary btn-circle">
+                        <i class="fa fa-cog" aria-hidden="true"></i>
+                    </button>
+                </a>
+                <a href="~/Contact/Remove/@data.Id">
+                    <button type="button" class="btn btn-danger btn-circle">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </a>
+                
+            </div>
+        </li>
+        }
+    </ul>
+    <a href="~/Contact/New">
+        <button class="btn btn-block">New contact</button>
+    </a>
+    
+
+</div>
+
+
+
+
+
+
